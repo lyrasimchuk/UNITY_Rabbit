@@ -46,11 +46,18 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Coins.cs" />
+     <Compile Include="Assets\Collectables.cs" />
+     <Compile Include="Assets\Cons.cs" />
      <Compile Include="Assets\DeathHere.cs" />
+     <Compile Include="Assets\EmptyCSharpFile.cs" />
      <Compile Include="Assets\HeroFollow.cs" />
      <Compile Include="Assets\HeroRabit.cs" />
+     <Compile Include="Assets\Level.cs" />
      <Compile Include="Assets\LevelController.cs" />
+     <Compile Include="Assets\MovingPlatform.cs" />
      <Compile Include="Assets\ParallaxLayer.cs" />
+     <Compile Include="Assets\gems.cs" />
      <Compile Include="Assets\run.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>D:/unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
