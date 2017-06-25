@@ -165,9 +165,11 @@
      <Compile Include="Assets\Libraries\GUI\Scripts\UI\UITexture.cs" />
      <Compile Include="Assets\Libraries\GUI\Scripts\UI\UITooltip.cs" />
      <Compile Include="Assets\Libraries\GUI\Scripts\UI\UIViewport.cs" />
+     <Compile Include="Assets\MainMenu.cs" />
      <Compile Include="Assets\MovingPlatform.cs" />
      <Compile Include="Assets\Mushroom.cs" />
      <Compile Include="Assets\Mushrooms.cs" />
+     <Compile Include="Assets\MyButton.cs" />
      <Compile Include="Assets\ParallaxLayer.cs" />
      <Compile Include="Assets\fruits.cs" />
      <Compile Include="Assets\gems.cs" />

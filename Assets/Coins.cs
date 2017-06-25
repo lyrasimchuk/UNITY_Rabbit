@@ -7,5 +7,6 @@ public class Coins : Collectables {
 	{
 		LevelController.current.addCoins(1);
 		this.CollectableHide();
+		
 	}
 }
