@@ -27,6 +27,7 @@ public class LevelController : MonoBehaviour {
 
 
 	public void addCoins(int coin){
+		Debug.Log("coins" + coins  + "coin" + coin);
 		this.coins+=coin;
 		coinsLabel.text = coins.ToString ();
 	}

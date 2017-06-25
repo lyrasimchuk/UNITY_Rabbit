@@ -2888,7 +2888,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1860150602}
   - component: {fileID: 1860150601}
-  - component: {fileID: 1860150603}
   m_Layer: 0
   m_Name: LevelController
   m_TagString: Untagged
@@ -2922,18 +2921,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1860150603
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1860150600}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acfb329b3ee23f44c879885f3873ba74, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playButton: {fileID: 0}
 --- !u!1 &1881344997
 GameObject:
   m_ObjectHideFlags: 0
