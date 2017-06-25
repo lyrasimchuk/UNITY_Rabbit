@@ -12,5 +12,6 @@ public class MainMenu : MonoBehaviour {
 		
 	void onPlay() {
 		SceneManager.LoadScene ("Level1");
+		Debug.Log("working");
 	}
 }

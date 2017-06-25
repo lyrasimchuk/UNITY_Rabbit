@@ -171,6 +171,7 @@
      <Compile Include="Assets\Mushrooms.cs" />
      <Compile Include="Assets\MyButton.cs" />
      <Compile Include="Assets\ParallaxLayer.cs" />
+     <Compile Include="Assets\RabitMenu.cs" />
      <Compile Include="Assets\fruits.cs" />
      <Compile Include="Assets\gems.cs" />
      <Compile Include="Assets\run.cs" />
