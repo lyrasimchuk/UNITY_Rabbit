@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class HeroRabit : MonoBehaviour {
+	public static HeroRabit lastRabit = null;
 	bool isGrounded = false;
 	bool JumpActive = false;
 	float JumpTime = 0f;
@@ -10,24 +11,33 @@ public class HeroRabit : MonoBehaviour {
 	public float JumpSpeed = 2f;
 	public float speed = 1;
 	public bool isLeveledUp = false;
+	public float isBigger = 1.4f;
 	Rigidbody2D myBody = null;
 	Transform heroParent = null;
 	float time_death;
-	public bool isDead = false;
-	// Use this for initialization
-	void Start () {
-		
-		myBody = this.GetComponent<Rigidbody2D> ();
+	public bool dead = false;
+	private bool isBig = false;
+	public int MaxLife = 2;
+	int life = 1;
+	Animator animator;
 
+	void Awake() {
+		lastRabit = this;
+	}
+
+	void Start () {
+			myBody = this.GetComponent<Rigidbody2D> ();
+			animator = GetComponent<Animator> ();
 			LevelController.current.setStartPosition (transform.position);
 			this.heroParent = this.transform.parent;
 			this.time_death = 0.0f;
 
 	}
+
 	void Update (){
 		//[-1,1]
 
-		Animator animator = GetComponent<Animator> ();
+		animator = GetComponent<Animator> ();
 		float value = Input.GetAxis ("Horizontal");
 		if(Mathf.Abs(value) > 0 && isGrounded) {
 			animator.SetBool ("run", true);
@@ -60,23 +70,6 @@ public class HeroRabit : MonoBehaviour {
 			}
 		}
 
-
-		if (this.isDead) {
-			this.time_death += Time.deltaTime;
-			value = 0.0f;
-			animator.SetBool ("die", true);
-			if (this.time_death >= 2.0) {
-				LevelController.current.onRabitDeath (this);
-				this.isDead = false;
-				this.time_death = 0.0f;
-	
-			
-			}
-
-		} else {
-			animator.SetBool ("die", false);
-
-		}
 
 	}
 	// Update is called once per frame
@@ -117,8 +110,45 @@ public class HeroRabit : MonoBehaviour {
 			SetNewParent(this.transform, this.heroParent);
 
 		}
+	}
+  		public void getBigger(){
 
+        if (isBig){
+            return;
+       		 }
+        else {
+            transform.localScale = new Vector3(isBigger, isBigger, 0);
+            isBig = true;
+        }
+		}
 
+		public void Explode(){
+        if (isBig){
+            transform.localScale = new Vector3(1f, 1f, 0f);
+            isBig = false;
+        	}
+        else{
+            die();
+        }
+    }
+
+	
+	public void die(){     
+		dead = true;
+		animator.SetTrigger("die");
+		StartCoroutine(afterDead(1));            
+    }
+
+	 IEnumerator afterDead(float duration)
+    {       
+        yield return new WaitForSeconds(duration);
+        LevelController.current.onRabitDeath(this);      
+        dead = false;     
+
+    }
+
+	public bool isDead() {
+		return dead;
 	}
 
 	static void SetNewParent(Transform obj, Transform new_parent) {

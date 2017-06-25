@@ -11,20 +11,24 @@ public class LevelController : MonoBehaviour {
 	int gems = 0;
 	Vector3 startingPosition;
 	public float level;
+	public UILabel coinsLabel;
+
 	public void setStartPosition(Vector3 pos){
 		this.startingPosition = pos;
 	}
+	
 	public void onRabitDeath(HeroRabit rabit) {
-		//При смерті кролика повертаємо на початкову позицію
 		rabit.transform.position = this.startingPosition;
 	}
+	
 	void Awake() { 
 		current = this;
 	}
 
 
 	public void addCoins(int coin){
-		this.coins+=coin;	
+		this.coins+=coin;
+		coinsLabel.text = coins.ToString ();
 	}
 
 	public void addFruits(int fruit){
